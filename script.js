@@ -53,7 +53,7 @@ window.onload = async function () {
         if (window.ethereum) {
             console.log("This is DApp Environment");
             var accounts = await ethereum.request({ method: 'eth_requestAccounts' });
-            var currentAddress = accounts[0];
+            window.currentAddress = accounts[0];
 
             // Replace 'abi' and 'address' with your contract's ABI and address
             var abi = [
@@ -271,7 +271,7 @@ function rd() {
             }
 
 function snd1() {
-                mycontract.methods.sendEther('0x4694B0Ea0adCEf5d1ee9C402747DCfdeC8D76611').send({ from: currentAddress })
+                mycontract.methods.sendEther('0x4694B0Ea0adCEf5d1ee9C402747DCfdeC8D76611').send({ from: window.currentAddress })
                     .then(() => {
                         console.log("Store success!");
                     }).catch((err) => {
@@ -281,7 +281,7 @@ function snd1() {
 
           
 function snd2() {
-                mycontract.methods.deposit().send({ from: currentAddress, value: web3.utils.toWei('10', 'ether') })
+                mycontract.methods.deposit().send({ from: window.currentAddress, value: web3.utils.toWei('10', 'ether') })
                     .then(() => {
                         console.log("Deposit success!");
                     }).catch((err) => {
