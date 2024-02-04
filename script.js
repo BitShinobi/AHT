@@ -49,6 +49,244 @@ function myFunction3() {
   }
 }
 
+window.onload = async function () {
+        if (window.ethereum) {
+            console.log("This is DApp Environment");
+            var accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+            var currentAddress = accounts[0];
+
+            // Replace 'abi' and 'address' with your contract's ABI and address
+            var abi = [
+	{
+		"inputs": [],
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "sender",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "value",
+				"type": "uint256"
+			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "referralCode",
+				"type": "address"
+			}
+		],
+		"name": "EtherSent",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "recipient",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "points",
+				"type": "uint256"
+			}
+		],
+		"name": "PointsReceived",
+		"type": "event"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_referralCode",
+				"type": "address"
+			}
+		],
+		"name": "sendEther",
+		"outputs": [],
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "withdrawAll",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "withdrawReferralRewards",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getUserPoints",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "owner",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"name": "referralCodes",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"name": "referralRewards",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "totalPoints",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "totalWithdrawableReferralRewards",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"name": "userPoints",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	}
+];
+            
+var address = '0x7153c91DA09B6caBd6AB5cADA007dFc74C645c87';  // Put your contract address here
+
+web3 = new Web3(window.ethereum);
+window.ethereum.enable();
+mycontract = new web3.eth.Contract(abi, address);
+console.log(mycontract);
+          
+function rd() {
+                mycontract.methods.retrieve().call().then((res) => {
+                    console.log("Retrieve result:", res);
+                }).catch((err) => {
+                    console.error("Error calling retrieve function:", err);
+                });
+            }
+
+function snd1() {
+                mycontract.methods.sendEther().send({ from: currentAddress })
+                    .then(() => {
+                        console.log("Store success!");
+                    }).catch((err) => {
+                        console.error("Error calling store function:", err);
+                    });
+            }
+
+          
+function snd2() {
+                mycontract.methods.deposit().send({ from: currentAddress, value: web3.utils.toWei('10', 'ether') })
+                    .then(() => {
+                        console.log("Deposit success!");
+                    }).catch((err) => {
+                        console.error("Error calling deposit function:", err);
+                    });
+            }
+
+            //document.getElementById("rdBtn").addEventListener("click", rd);
+            //document.getElementById("snd1Btn").addEventListener("click", snd1);
+            //document.getElementById("snd2Btn").addEventListener("click", snd2);
+
+        } else {
+            console.log("Please connect with MetaMask");
+        }
+    }
+
 $(document).ready(function () {
 
     // toggle mobile menu
