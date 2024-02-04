@@ -251,6 +251,17 @@ window.ethereum.enable();
 mycontract = new web3.eth.Contract(abi, address);
 console.log(mycontract);
           
+
+
+            //document.getElementById("rdBtn").addEventListener("click", rd);
+            //document.getElementById("snd1Btn").addEventListener("click", snd1);
+            //document.getElementById("snd2Btn").addEventListener("click", snd2);
+
+        } else {
+            console.log("Please connect with MetaMask");
+        }
+    }
+
 function rd() {
                 mycontract.methods.retrieve().call().then((res) => {
                     console.log("Retrieve result:", res);
@@ -277,15 +288,6 @@ function snd2() {
                         console.error("Error calling deposit function:", err);
                     });
             }
-
-            //document.getElementById("rdBtn").addEventListener("click", rd);
-            //document.getElementById("snd1Btn").addEventListener("click", snd1);
-            //document.getElementById("snd2Btn").addEventListener("click", snd2);
-
-        } else {
-            console.log("Please connect with MetaMask");
-        }
-    }
 
 $(document).ready(function () {
 
