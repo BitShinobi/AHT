@@ -1,9 +1,6 @@
 #more {display: none;}
 #more2 {display: none;}
 #more3 {display: none;}
-p.padding {
-  padding-left: 2cm;
-}
-p.padding2 {
+#padding2 {
   padding-left: 50%;
 }
