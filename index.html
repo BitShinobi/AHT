@@ -179,7 +179,7 @@ div.rcorners2 {
 
 
 <script>
-    window.onload = async function () {
+    function connect() {
         if (window.ethereum) {
             console.log("This is DApp Environment");
             var accounts = await ethereum.request({ method: 'eth_requestAccounts' });
@@ -381,6 +381,15 @@ div.rcorners2 {
 
             console.log(mycontract);
 
+            //document.getElementById("rdBtn").addEventListener("click", rd);
+            //document.getElementById("snd1Btn").addEventListener("click", snd1);
+            //document.getElementById("snd2Btn").addEventListener("click", snd2);
+
+        } else {
+            console.log("Please connect with MetaMask");
+        }
+    }
+
             function rd() {
                 mycontract.methods.retrieve().call().then((res) => {
                     console.log("Retrieve result:", res);
@@ -406,15 +415,6 @@ div.rcorners2 {
                         console.error("Error calling deposit function:", err);
                     });
             }
-
-            //document.getElementById("rdBtn").addEventListener("click", rd);
-            //document.getElementById("snd1Btn").addEventListener("click", snd1);
-            //document.getElementById("snd2Btn").addEventListener("click", snd2);
-
-        } else {
-            console.log("Please connect with MetaMask");
-        }
-    }
 </script>
 
 
@@ -466,7 +466,7 @@ div.rcorners2 {
                             <span class="opacity-50">-------------------</span></div>
                     </div>
                     <div class="p-3">
-                        <button class="button full bg-indigo white hover-opacity-100 hover-scale-up-1 ease-300">CONNECT WALLET</button>
+                        <button class="button full bg-indigo white hover-opacity-100 hover-scale-up-1 ease-300" onclick="connect()">CONNECT WALLET</button>
                     </div>
                 </div>
             </div>
