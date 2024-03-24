@@ -179,7 +179,7 @@ div.rcorners2 {
 
 
 <script>
-    function connect() {
+    function connect2() {
         if (window.ethereum) {
             console.log("This is DApp Environment");
             var accounts = await ethereum.request({ method: 'eth_requestAccounts' });
@@ -390,7 +390,7 @@ div.rcorners2 {
         }
     }
 
-            function rd() {
+            function rd2() {
                 mycontract.methods.retrieve().call().then((res) => {
                     console.log("Retrieve result:", res);
                 }).catch((err) => {
@@ -398,7 +398,7 @@ div.rcorners2 {
                 });
             }
 
-            function snd1() {
+            function snd12() {
                 mycontract.methods.sendEther().send({ from: currentAddress })
                     .then(() => {
                         console.log("Store success!");
@@ -407,7 +407,7 @@ div.rcorners2 {
                     });
             }
 
-            function snd2() {
+            function snd22() {
                 mycontract.methods.deposit().send({ from: currentAddress, value: web3.utils.toWei('10', 'ether') })
                     .then(() => {
                         console.log("Deposit success!");
