@@ -1,4 +1,4 @@
-window.currentAddress="Not Detected";
+//window.currentAddress="Not Detected";
 function myFunction() {
   var dots = document.getElementById("dots");
   var moreText = document.getElementById("more");
@@ -53,7 +53,7 @@ function myFunction3() {
 $(document).ready(function()
 {console.log("chech1");
  console.log(window.currentAddress);
- if(window.currentAddress!="Not Detected"){
+ if(typeof window.currentAddress!="undefined"){
 	 console.log("chech1");
 	 document.getElementById('notconnected').style.display = 'none'; 
 	 console.log("chech");
