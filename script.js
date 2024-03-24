@@ -50,7 +50,8 @@ function myFunction3() {
   }
 }
 
-$(window).load(function() {
+$(document).ready(function()
+{
  if(window.currentAddress!="Not Detected"){
 	 console.log("chech1");
 	 document.getElementById('notconnected').style.display = 'none'; 
