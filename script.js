@@ -1,4 +1,4 @@
-window.currentAddress="Not Detected"
+let window.currentAddress="Not Detected";
 function myFunction() {
   var dots = document.getElementById("dots");
   var moreText = document.getElementById("more");
