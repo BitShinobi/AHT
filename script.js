@@ -49,6 +49,7 @@ function myFunction3() {
   }
 }
 
+function connect() {
 window.onload = async function () {
         if (window.ethereum) {
             console.log("This is DApp Environment");
@@ -261,6 +262,9 @@ console.log(mycontract);
             console.log("Please connect with MetaMask");
         }
     }
+
+}
+
 
 function rd() {
                 mycontract.methods.retrieve().call().then((res) => {
