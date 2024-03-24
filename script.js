@@ -53,7 +53,9 @@ function myFunction3() {
 $(document).ready(function()
 {console.log("chech1");
  console.log(window.currentAddress);
- if(typeof window.currentAddress!="undefined"){
+ if(window.currentAddress===undefined){
+	 console.log("nothing");
+ }else{
 	 console.log("chech1");
 	 document.getElementById('notconnected').style.display = 'none'; 
 	 console.log("chech");
