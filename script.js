@@ -52,7 +52,9 @@ function myFunction3() {
 
 $(window).load(function() {
  if(window.currentAddress!="Not Detected"){
+	 console.log("chech1");
 	 document.getElementById('notconnected').style.display = 'none'; 
+	 console.log("chech");
  }
 });
 
