@@ -1,3 +1,4 @@
+window.currentAddress="Not Detected"
 function myFunction() {
   var dots = document.getElementById("dots");
   var moreText = document.getElementById("more");
@@ -48,6 +49,12 @@ function myFunction3() {
     moreText.style.display = "inline";
   }
 }
+
+$(window).load(function() {
+ if(window.currentAddress!="Not Detected"){
+	 document.getElementById('notconnected').style.display = 'none'; 
+ }
+});
 
 async function connect() {
         if (window.ethereum) {
