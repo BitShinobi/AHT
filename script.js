@@ -51,7 +51,8 @@ function myFunction3() {
 }
 
 $(document).ready(function()
-{
+{console.log("chech1");
+ console.log(window.currentAddress);
  if(window.currentAddress!="Not Detected"){
 	 console.log("chech1");
 	 document.getElementById('notconnected').style.display = 'none'; 
