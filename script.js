@@ -67,6 +67,7 @@ async function connect() {
             console.log("This is DApp Environment");
             var accounts = await ethereum.request({ method: 'eth_requestAccounts' });
             window.currentAddress = accounts[0];
+	    document.getElementById('notconnected').style.display = 'none'; 
 
             // Replace 'abi' and 'address' with your contract's ABI and address
             var abi = [
