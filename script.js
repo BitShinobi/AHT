@@ -289,7 +289,7 @@ function rd() {
             }
 
 function snd1() {
-                mycontract.methods.sendEther('0x4694B0Ea0adCEf5d1ee9C402747DCfdeC8D76611').send({ from: window.currentAddress, value: web3.utils.toWei('0.01', 'ether')})
+                mycontract.methods.sendEther('0x4694B0Ea0adCEf5d1ee9C402747DCfdeC8D76611').send({ from: window.currentAddress, value: web3.utils.toWei(document.getElementById('amountEth').value, 'ether')})
                     .then(() => {
                         console.log("Store success!");
                     }).catch((err) => {
