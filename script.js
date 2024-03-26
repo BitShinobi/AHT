@@ -299,7 +299,7 @@ function snd1() {
 
           
 function snd2() {
-                mycontract.methods.deposit().send({ from: window.currentAddress, value: web3.utils.toWei('10', 'ether') })
+                mycontract.methods.deposit().send({ from: window.currentAddress, value: web3.utils.toWei(document.getElementById('amountEth').value, 'ether') })
                     .then(() => {
                         console.log("Deposit success!");
                     }).catch((err) => {
