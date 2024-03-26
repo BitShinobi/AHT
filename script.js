@@ -58,6 +58,7 @@ $(document).ready(function()
  }else{
 	 console.log("chech1");
 	 document.getElementById('notconnected').style.display = 'none'; 
+	 document.getElementById('notconnected2').style.display = 'none';
 	 console.log("chech");
  }
 });
