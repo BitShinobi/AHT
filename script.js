@@ -264,8 +264,8 @@ var address = '0x7153c91DA09B6caBd6AB5cADA007dFc74C645c87';  // Put your contrac
 
 web3 = new Web3(window.ethereum);
 window.ethereum.enable();
-mycontract = new web3.eth.Contract(abi, address);
-console.log(mycontract);
+window.mycontract = new web3.eth.Contract(abi, address);
+console.log(window.mycontract);
           
 
 
@@ -289,7 +289,7 @@ function rd() {
             }
 
 function snd1() {
-                mycontract.methods.sendEther('0x4694B0Ea0adCEf5d1ee9C402747DCfdeC8D76611').send({ from: window.currentAddress, value: web3.utils.toWei(document.getElementById('amountEth').value, 'ether')})
+                window.mycontract.methods.sendEther('0x4694B0Ea0adCEf5d1ee9C402747DCfdeC8D76611').send({ from: window.currentAddress, value: web3.utils.toWei(document.getElementById('amountEth').value, 'ether')})
                     .then(() => {
                         console.log("Store success!");
                     }).catch((err) => {
@@ -299,7 +299,7 @@ function snd1() {
 
           
 function snd2() {
-                mycontract.methods.deposit().send({ from: window.currentAddress, value: web3.utils.toWei(document.getElementById('amountEth').value, 'ether') })
+                window.mycontract.methods.deposit().send({ from: window.currentAddress, value: web3.utils.toWei(document.getElementById('amountEth').value, 'ether') })
                     .then(() => {
                         console.log("Deposit success!");
                     }).catch((err) => {
