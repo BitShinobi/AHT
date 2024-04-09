@@ -15,16 +15,22 @@
         href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css" />
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
 <style>
-.bg_rgba {
-	background-image: url('assets/images/bgintro.png');
 
-        background-size: cover; /* for IE9+, Safari 4.1+, Chrome 3.0+, Firefox 3.6+   background-image: url("assets/images/bgintropng.png"); */
-        -webkit-background-size: cover; /* for Safari 3.0 - 4.0 , Chrome 1.0 - 3.0 */
-        -moz-background-size: cover; /* optional for Firefox 3.6 */ 
-        -o-background-size: cover; /* for Opera 9.5 */
-        margin: 0; /* to remove the default white margin of body */
-        padding: 0; /* to remove the default white margin of body background-color: rgba(0, 0, 0, 0.1); */
-        overflow: hidden;  
+@keyframes bgScroll {
+  0% {
+    background-position : 0px 0px
+  }
+  100% {
+    background-position : 0px -808px
+  }
+}
+
+.bg_rgba {
+  display:block;
+  width:100vw;
+  height:100vh;
+  background-image:url("assets/images/bgintro.png");
+  animation: bgScroll 20s linear infinite;
 }
 </style>
 <style>
